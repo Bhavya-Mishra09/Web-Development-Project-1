@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Club NIT Patna</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a2472;
+            --primary-light: #4d5eff;
+            --secondary: #00d4aa;
+            --secondary-dark: #00a884;
+            --dark: #121a36;
+            --light: #f8f9ff;
+            --gray: #e2e8f0;
+            --gray-dark: #94a3b8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --card-shadow: 0 6px 16px rgba(0, 0, 50, 0.08);
+            --card-shadow-hover: 0 12px 24px rgba(0, 0, 80, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 36, 114, 0.95);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        nav a.active {
+            color: var(--secondary);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Content Area */
+        #page-content {
+            min-height: calc(100vh - 200px);
+            padding: 2rem 0;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 36, 114, 0.85), rgba(0, 212, 170, 0.2)), url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Cards & Grids */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--gray);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .card-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-dark);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Home Page Specific */
+        .highlights {
+            display: flex;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .highlight-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+
+        .highlight-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .highlights {
+                flex-direction: column;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            nav ul {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem 0;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--gray);
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Table Styles (for Achievements, etc.) */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .data-table th, .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .data-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 500;
+        }
+
+        .data-table tr:hover {
+            background: #f5f9ff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h1>ROBOTICS <span>CLUB</span> NITP</h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="mainNav">
+                    <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#projects" class="nav-link" data-page="projects">Projects</a></li>
+                    <li><a href="#events" class="nav-link" data-page="events">Events</a></li>
+                    <li><a href="#team" class="nav-link" data-page="team">Team</a></li>
+                    <li><a href="#news" class="nav-link" data-page="news">News</a></li>
+                    <li><a href="#achievements" class="nav-link" data-page="achievements">Achievements</a></li>
+                    <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="page-content">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <div class="container">
+                    <h2>CODE FOR FUTURE ROBOTICS</h2>
+                    <p>Welcome to the official website of the Robotics Club at NIT Patna. We innovate, build, and compete at the intersection of hardware and software.</p>
+                    <a href="#about" class="btn btn-secondary nav-link" data-page="about">Explore Our Club</a>
+                </div>
+            </div>
+            
+            <div class="container">
+                <h2>Quick Navigation</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="badge">About</span>
+                            <h3>Our Story</h3>
+                            <p>Learn about our history, mission, vision, and the facilities we have.</p>
+                            <a href="#about" class="btn btn-outline nav-link" data-page="about">Explore</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="badge">Projects</span>
+                            <h3>Our Work</h3>
+                            <p>Check out our past and ongoing robotics projects with detailed descriptions.</p>
+                            <a href="#projects" class="btn btn-outline nav-link" data-page="projects">View Projects</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="badge">Events</span>
+                            <h3>Upcoming Events</h3>
+                            <p>Workshops, competitions, and guest lectures. Don't miss out!</p>
+                            <a href="#events" class="btn btn-outline nav-link" data-page="events">View Events</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Club Highlights</h2>
+                <div class="highlights">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Competitions</h3>
+                        <p>Regular participation in national and international robotics competitions with multiple wins.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h3>Workshops</h3>
+                        <p>Hands-on workshops on robotics fundamentals, AI, IoT, and advanced control systems.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Research Projects</h3>
+                        <p>Cutting-edge research in autonomous systems, computer vision, and robotic manipulators.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Upcoming Event Teaser</h3>
+                        <p><strong>Robotics Hackathon 2026:</strong> Join us for a 48-hour hackathon focusing on autonomous drones. March 15-17, 2026. Register your team now!</p>
+                        <a href="#events" class="btn nav-link" data-page="events">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="card" style="margin-top: 2rem;">
+                    <div class="card-content">
+                        <h3>Recent Achievement</h3>
+                        <p><strong>National Robotics Championship 2025:</strong> Our team "NITP RoboX" secured 1st prize in the Autonomous Maze Solver category, competing against 50+ teams from across India.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="page">
+            <div class="container">
+                <h1>About Robotics Club</h1>
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Club History</h2>
+                        <p>The Robotics Club at NIT Patna was established in 2012 with the vision of fostering innovation in robotics and automation among students. Over the years, we have grown to become one of the most active technical clubs on campus.</p>
+                    </div>
+                </div>
+                
+                <div class="grid" style="margin-top: 2rem;">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Mission</h3>
+                            <p>To provide students with hands-on experience in robotics, foster innovation, and prepare them for real-world challenges in automation and AI.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Vision</h3>
+                            <p>To be a leading student-led robotics innovation hub that contributes to technological advancement and societal development.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Objectives</h3>
+                            <ul style="padding-left: 1.2rem;">
+                                <li>Promote interdisciplinary learning in robotics</li>
+                                <li>Participate in national/international competitions</li>
+                                <li>Organize workshops and training sessions</li>
+                                <li>Foster industry-academia collaboration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Club Activities</h2>
+                <div class="grid">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Competitions" class="card-img">
+                        <div class="card-content">
+                            <h3>Competitions</h3>
+                            <p>We regularly participate in prestigious competitions like Robocon, Indian Robotics League, and various hackathons.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Workshops" class="card-img">
+                        <div class="card-content">
+                            <h3>Workshops</h3>
+                            <p>From basics of Arduino to advanced ROS and computer vision, we conduct workshops for all skill levels.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Research" class="card-img">
+                        <div class="card-content">
+                            <h3>Research Projects</h3>
+                            <p>We undertake research projects in collaboration with faculty members on cutting-edge robotics topics.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Infrastructure & Lab Facilities</h2>
+                <div class="card">
+                    <div class="card-content">
+                        <p>Our club has access to a dedicated robotics lab equipped with:</p>
+                        <ul style="padding-left: 1.2rem; margin-top: 1rem;">
+                            <li>3D Printers and CNC machine for prototyping</li>
+                            <li>Arduino, Raspberry Pi, and NVIDIA Jetson development kits</li>
+                            <li>Various sensors, actuators, and robotic arms</li>
+                            <li>High-performance computing workstations for simulation</li>
+                            <li>Electronics workbench with oscilloscopes and function generators</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2>Club Timeline & Milestones</h2>
+                <div class="card">
+                    <div class="card-content">
+                        <p><strong>2012:</strong> Club established with 15 founding members</p>
+                        <p><strong>2015:</strong> First participation in National Robocon</p>
+                        <p><strong>2018:</strong> Won first national competition (IIT Bombay Techfest)</p>
+                        <p><strong>2020:</strong> Established dedicated robotics lab on campus</p>
+                        <p><strong>2023:</strong> Published first research paper in international conference</p>
+                        <p><strong>2025:</strong> Secured 1st prize in National Robotics Championship</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Page -->
+        <section id="projects" class="page">
+            <div class="container">
+                <h1>Our Projects</h1>
+                <p>Explore our past and ongoing robotics projects</p>
+                
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="drone">Drone</button>
+                    <button class="filter-btn" data-filter="arm">Robotic Arm</button>
+                    <button class="filter-btn" data-filter="ai">AI</button>
+                    <button class="filter-btn" data-filter="iot">IoT</button>
+                </div>
+                
+                <div class="grid" id="projects-grid">
+                    <!-- Projects will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Page -->
+        <section id="events" class="page">
+            <div class="container">
+                <h1>Events & Activities</h1>
+                
+                <h2>Upcoming Events</h2>
+                <div class="grid" id="upcoming-events">
+                    <!-- Upcoming events loaded by JS -->
+                </div>
+                
+                <h2>Ongoing Events</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="badge">Ongoing</span>
+                            <h3>Autonomous Drone Development</h3>
+                            <p>Team working on vision-based navigation for drones in GPS-denied environments.</p>
+                            <p><strong>Duration:</strong> Jan - Apr 2026</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="badge">Ongoing</span>
+                            <h3>Robotic Arm for Agriculture</h3>
+                            <p>Developing a cost-effective robotic arm for automated fruit picking and sorting.</p>
+                            <p><strong>Duration:</strong> Dec 2025 - Mar 2026</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Past Events</h2>
+                <div class="grid" id="past-events">
+                    <!-- Past events loaded by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Page -->
+        <section id="team" class="page">
+            <div class="container">
+                <h1>Our Team</h1>
+                
+                <h2>Faculty Advisor</h2>
+                <div class="card">
+                    <div class="card-content">
+                        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                            <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #ccc;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div style="flex: 1; min-width: 300px;">
+                                <h3>Dr. Rajesh Kumar</h3>
+                                <p><strong>Designation:</strong> Professor, Department of Electrical Engineering</p>
+                                <p><strong>Message:</strong> "The Robotics Club represents the innovative spirit of NIT Patna. I'm proud to mentor such talented students pushing the boundaries of robotics technology."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Core Team / Office Bearers</h2>
+                <div class="grid" id="core-team">
+                    <!-- Core team loaded by JS -->
+                </div>
+                
+                <h2>Team Members by Specialization</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Hardware Team</h3>
+                            <p><strong>Lead:</strong> Priya Sharma</p>
+                            <p><strong>Members:</strong> 12 students</p>
+                            <p>Focus: Circuit design, PCB fabrication, mechanical assembly, sensor integration</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Software Team</h3>
+                            <p><strong>Lead:</strong> Amit Patel</p>
+                            <p><strong>Members:</strong> 15 students</p>
+                            <p>Focus: Control algorithms, ROS, simulation, embedded programming</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>AI & Vision Team</h3>
+                            <p><strong>Lead:</strong> Rohan Singh</p>
+                            <p><strong>Members:</strong> 10 students</p>
+                            <p>Focus: Computer vision, machine learning, path planning, SLAM</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Design Team</h3>
+                            <p><strong>Lead:</strong> Sneha Gupta</p>
+                            <p><strong>Members:</strong> 8 students</p>
+                            <p>Focus: 3D modeling, UI/UX, graphic design, documentation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Page -->
+        <section id="news" class="page">
+            <div class="container">
+                <h1>Robotics News & Updates</h1>
+                
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-news-filter="all">All News</button>
+                    <button class="filter-btn" data-news-filter="club">Club News</button>
+                    <button class="filter-btn" data-news-filter="competition">Competition News</button>
+                    <button class="filter-btn" data-news-filter="tech">Tech Innovations</button>
+                </div>
+                
+                <div id="news-container">
+                    <!-- News loaded by JavaScript -->
+                </div>
+                
+                <div class="card" style="margin-top: 3rem;">
+                    <div class="card-content">
+                        <h3>Subscribe to Our Newsletter</h3>
+                        <p>Stay updated with the latest from Robotics Club NITP</p>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                            <input type="email" placeholder="Enter your email" style="flex: 1; min-width: 250px; padding: 0.8rem; border: 2px solid var(--gray); border-radius: 8px;">
+                            <button class="btn">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Page -->
+        <section id="achievements" class="page">
+            <div class="container">
+                <h1>Our Achievements</h1>
+                
+                <h2>Competition Wins</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Competition</th>
+                            <th>Year</th>
+                            <th>Prize</th>
+                            <th>Team Members</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>National Robotics Championship</td>
+                            <td>2025</td>
+                            <td>1st Prize</td>
+                            <td>Rohan, Priya, Amit, Sneha</td>
+                        </tr>
+                        <tr>
+                            <td>IIT Bombay Techfest - Robowars</td>
+                            <td>2024</td>
+                            <td>2nd Prize</td>
+                            <td>Karan, Anjali, Vivek, Divya</td>
+                        </tr>
+                        <tr>
+                            <td>Indian Robotics League</td>
+                            <td>2023</td>
+                            <td>3rd Prize</td>
+                            <td>Raj, Meera, Sanjay, Preeti</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h2>Research Publications</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Vision-based Navigation for Drones</h3>
+                            <p><strong>Conference:</strong> International Conference on Robotics and Automation (ICRA)</p>
+                            <p><strong>Year:</strong> 2025</p>
+                            <p><strong>Authors:</strong> R. Singh, P. Sharma, A. Patel, Dr. R. Kumar</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Low-cost Robotic Arm for Agriculture</h3>
+                            <p><strong>Journal:</strong> Journal of Field Robotics</p>
+                            <p><strong>Year:</strong> 2024</p>
+                            <p><strong>Authors:</strong> S. Gupta, M. Verma, Dr. R. Kumar</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Grants & Awards</h2>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Innovation Grant from DST</h3>
+                        <p><strong>Granting Organization:</strong> Department of Science & Technology, Govt. of India</p>
+                        <p><strong>Year:</strong> 2025</p>
+                        <p><strong>Amount:</strong> ₹15,00,000</p>
+                        <p><strong>Purpose:</strong> Development of assistive robotics for differently-abled individuals</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Get In Touch</h3>
+                            <p><strong>Address:</strong> Robotics Club, NIT Patna, Ashok Rajpath, Patna, Bihar 800005</p>
+                            <p><strong>Email:</strong> roboticsclub@nitp.ac.in</p>
+                            <p><strong>Phone:</strong> +91 12345 67890</p>
+                            
+                            <h4 style="margin-top: 1.5rem;">Office Hours</h4>
+                            <p>Monday - Friday: 3:00 PM - 6:00 PM</p>
+                            <p>Saturday: 10:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Contact Form</h3>
+                            <form id="contactForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                                <input type="text" placeholder="Your Name" required style="padding: 0.8rem; border: 2px solid var(--gray); border-radius: 8px;">
+                                <input type="email" placeholder="Your Email" required style="padding: 0.8rem; border: 2px solid var(--gray); border-radius: 8px;">
+                                <select style="padding: 0.8rem; border: 2px solid var(--gray); border-radius: 8px;">
+                                    <option value="">Select Purpose</option>
+                                    <option value="membership">Membership Inquiry</option>
+                                    <option value="collaboration">Collaboration</option>
+                                    <option value="workshop">Workshop Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <textarea placeholder="Your Message" rows="4" style="padding: 0.8rem; border: 2px solid var(--gray); border-radius: 8px;"></textarea>
+                                <button type="submit" class="btn">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Find Us On Campus</h2>
+                <div class="card">
+                    <div class="card-content">
+                        <p><strong>Location:</strong> Main Academic Block, Ground Floor, Room G-12 (Robotics Lab)</p>
+                        <div style="height: 200px; background: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888; margin-top: 1rem;">
+                            <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Campus Map Would Appear Here
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Robotics Club NITP</h3>
+                    <p>Driving innovation in robotics and automation at NIT Patna since 2012.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#home" class="nav-link" data-page="home" style="color: white; text-decoration: none;">Home</a></li>
+                        <li><a href="#projects" class="nav-link" data-page="projects" style="color: white; text-decoration: none;">Projects</a></li>
+                        <li><a href="#events" class="nav-link" data-page="events" style="color: white; text-decoration: none;">Events</a></li>
+                        <li><a href="#achievements" class="nav-link" data-page="achievements" style="color: white; text-decoration: none;">Achievements</a></li>
+                        <li><a href="#contact" class="nav-link" data-page="contact" style="color: white; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> roboticsclub@nitp.ac.in</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> NIT Patna, Bihar, India</p>
+                    
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Robotics Club, NIT Patna. All rights reserved. | Website for selection process AY 2025-2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        });
+
+        // Page navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Show target page
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(targetPage).classList.add('active');
+                
+                // Close mobile menu if open
+                document.getElementById('mainNav').classList.remove('active');
+                
+                // Update URL hash
+                window.location.hash = targetPage;
+            });
+        });
+
+        // Load projects data
+        const projects = [
+            { id: 1, title: "Autonomous Drone", year: 2025, type: "drone", desc: "A fully autonomous drone capable of navigation in GPS-denied environments using computer vision and SLAM technology.", tech: "ROS, Python, OpenCV, Pixhawk", img: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 2, title: "6-DOF Robotic Arm", year: 2024, type: "arm", desc: "A 6-degree-of-freedom robotic arm with precision control for industrial pick-and-place applications.", tech: "Arduino, Stepper Motors, CNC", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 3, title: "AI-Powered Rover", year: 2025, type: "ai", desc: "Mars rover prototype with AI-based terrain analysis and autonomous decision-making capabilities.", tech: "TensorFlow, Raspberry Pi, Python", img: "https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 4, title: "Smart Agriculture IoT", year: 2024, type: "iot", desc: "IoT-based monitoring system for precision agriculture with automated irrigation and soil analysis.", tech: "ESP32, Sensors, MQTT, Cloud", img: "https://images.unsplash.com/photo-1586771107445-d3ca888129fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 5, title: "Swarm Robotics", year: 2023, type: "ai", desc: "Coordinated swarm of small robots for collaborative task completion and pattern formation.", tech: "ROS, Zigbee, C++", img: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 6, title: "Humanoid Robot", year: 2022, type: "ai", desc: "Bipedal humanoid robot capable of basic human-like movements and voice interaction.", tech: "Servo Motors, Arduino, AI", img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        function renderProjects(filter = 'all') {
+            const container = document.getElementById('projects-grid');
+            container.innerHTML = '';
+            
+            const filteredProjects = filter === 'all' 
+                ? projects 
+                : projects.filter(p => p.type === filter);
+            
+            filteredProjects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'card';
+                projectCard.innerHTML = `
+                    <img src="${project.img}" alt="${project.title}" class="card-img">
+                    <div class="card-content">
+                        <span class="badge">${project.year}</span>
+                        <h3>${project.title}</h3>
+                        <p>${project.desc}</p>
+                        <p><strong>Technologies:</strong> ${project.tech}</p>
+                    </div>
+                `;
+                container.appendChild(projectCard);
+            });
+        }
+
+        // Filter projects
+        document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn[data-filter]').forEach(b => {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+                const filter = this.getAttribute('data-filter');
+                renderProjects(filter);
+            });
+        });
+
+        // Load events
+        const upcomingEvents = [
+            { title: "Robotics Hackathon 2026", date: "Mar 15-17, 2026", venue: "Main Auditorium", desc: "48-hour hackathon focusing on autonomous drones and swarm robotics.", type: "competition" },
+            { title: "ROS Workshop", date: "Feb 22, 2026", venue: "Robotics Lab", desc: "Hands-on workshop on Robot Operating System for beginners.", type: "workshop" },
+            { title: "Guest Lecture: AI in Robotics", date: "Feb 10, 2026", venue: "Seminar Hall", desc: "Dr. Anjali Mehta from IIT Delhi will discuss recent advances in AI for robotics.", type: "lecture" },
+            { title: "Inter-College Robowars", date: "Apr 5, 2026", venue: "Sports Complex", desc: "Annual robot combat competition open to all engineering colleges.", type: "competition" }
+        ];
+
+        const pastEvents = [
+            { title: "Arduino Basics Workshop", date: "Nov 2025", img: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", desc: "Introduction to Arduino programming and circuit design for beginners." },
+            { title: "National Robotics Championship", date: "Oct 2025", img: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", desc: "Our team secured 1st prize in the autonomous maze solver category." },
+            { title: "Industry Visit to Robotex", date: "Sep 2025", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", desc: "Visit to leading robotics manufacturing company in Bangalore." }
+        ];
+
+        function renderEvents() {
+            const upcomingContainer = document.getElementById('upcoming-events');
+            const pastContainer = document.getElementById('past-events');
+            
+            // Upcoming events
+            upcomingEvents.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'card';
+                eventCard.innerHTML = `
+                    <div class="card-content">
+                        <span class="badge">${event.type}</span>
+                        <h3>${event.title}</h3>
+                        <p><strong>Date:</strong> ${event.date}</p>
+                        <p><strong>Venue:</strong> ${event.venue}</p>
+                        <p>${event.desc}</p>
+                        <button class="btn" style="margin-top: 1rem;">Register Interest</button>
+                    </div>
+                `;
+                upcomingContainer.appendChild(eventCard);
+            });
+            
+            // Past events
+            pastEvents.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'card';
+                eventCard.innerHTML = `
+                    <img src="${event.img}" alt="${event.title}" class="card-img">
+                    <div class="card-content">
+                        <span class="badge">Past Event</span>
+                        <h3>${event.title}</h3>
+                        <p><strong>Date:</strong> ${event.date}</p>
+                        <p>${event.desc}</p>
+                    </div>
+                `;
+                pastContainer.appendChild(eventCard);
+            });
+        }
+
+        // Load team members
+        const coreTeam = [
+            { name: "Rohan Singh", role: "President", contact: { linkedin: "#", github: "#" }, img: "" },
+            { name: "Priya Sharma", role: "Vice President", contact: { linkedin: "#", github: "#" }, img: "" },
+            { name: "Amit Patel", role: "Technical Coordinator", contact: { linkedin: "#", github: "#" }, img: "" },
+            { name: "Sneha Gupta", role: "Operations Coordinator", contact: { linkedin: "#", github: "#" }, img: "" },
+            { name: "Karan Verma", role: "Treasurer", contact: { linkedin: "#", github: "#" }, img: "" },
+            { name: "Divya Mehta", role: "Outreach Coordinator", contact: { linkedin: "#", github: "#" }, img: "" }
+        ];
+
+        function renderTeam() {
+            const container = document.getElementById('core-team');
+            coreTeam.forEach(member => {
+                const memberCard = document.createElement('div');
+                memberCard.className = 'card';
+                memberCard.innerHTML = `
+                    <div class="card-content">
+                        <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #ccc; margin-bottom: 1rem;">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>${member.name}</h3>
+                        <p><strong>${member.role}</strong></p>
+                        <div class="social-icons" style="margin-top: 1rem;">
+                            <a href="${member.contact.linkedin}"><i class="fab fa-linkedin"></i></a>
+                            <a href="${member.contact.github}"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(memberCard);
+            });
+        }
+
+        // Load news
+        const news = [
+            { title: "New Robotics Lab Inauguration", date: "Jan 10, 2026", source: "Club News", category: "club", desc: "Our newly expanded robotics lab was inaugurated by the Director of NIT Patna. The lab now features advanced 3D printers and a dedicated AI workstation.", link: "#" },
+            { title: "Team Selected for International Competition", date: "Dec 20, 2025", source: "Competition News", category: "competition", desc: "Our team has been selected to represent India at the International Robotics Olympiad in Singapore next month.", link: "#" },
+            { title: "Breakthrough in Swarm Robotics", date: "Dec 5, 2025", source: "Tech Journal", category: "tech", desc: "Researchers at MIT have developed a new algorithm that allows drone swarms to navigate complex environments without collisions.", link: "#" },
+            { title: "AI Robot Learns to Solve Rubik's Cube", date: "Nov 28, 2025", source: "Research Breakthrough", category: "tech", desc: "OpenAI's robotic hand has learned to solve a Rubik's Cube with one hand, demonstrating advanced dexterity and problem-solving.", link: "#" },
+            { title: "Monthly Meeting Summary", date: "Nov 15, 2025", source: "Club News", category: "club", desc: "The November club meeting focused on planning for the upcoming hackathon and reviewing progress on ongoing projects.", link: "#" }
+        ];
+
+        function renderNews(filter = 'all') {
+            const container = document.getElementById('news-container');
+            container.innerHTML = '';
+            
+            const filteredNews = filter === 'all' 
+                ? news 
+                : news.filter(n => n.category === filter);
+            
+            filteredNews.forEach(item => {
+                const newsCard = document.createElement('div');
+                newsCard.className = 'card';
+                newsCard.style.marginBottom = '1.5rem';
+                newsCard.innerHTML = `
+                    <div class="card-content">
+                        <span class="badge">${item.source}</span>
+                        <h3>${item.title}</h3>
+                        <p><strong>Date:</strong> ${item.date}</p>
+                        <p>${item.desc}</p>
+                        <a href="${item.link}" class="btn btn-outline" style="margin-top: 1rem;">Read More</a>
+                    </div>
+                `;
+                container.appendChild(newsCard);
+            });
+        }
+
+        // Filter news
+        document.querySelectorAll('.filter-btn[data-news-filter]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn[data-news-filter]').forEach(b => {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+                const filter = this.getAttribute('data-news-filter');
+                renderNews(filter);
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! This is a demo form - in a real implementation, this would send your message to the club.');
+            this.reset();
+        });
+
+        // Initialize page based on hash
+        function initPage() {
+            const hash = window.location.hash.substring(1) || 'home';
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-page') === hash) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Show target page
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(hash).classList.add('active');
+        }
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProjects();
+            renderEvents();
+            renderTeam();
+            renderNews();
+            initPage();
+            
+            // Handle hash changes
+            window.addEventListener('hashchange', initPage);
+        });
+    </script>
+</body>
+</html>
