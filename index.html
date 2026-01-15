@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Club NIT Patna</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h1>ROBOTICS <span>CLUB</span> NITP</h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="mainNav">
+                    <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#projects" class="nav-link" data-page="projects">Projects</a></li>
+                    <li><a href="#events" class="nav-link" data-page="events">Events</a></li>
+                    <li><a href="#team" class="nav-link" data-page="team">Team</a></li>
+                    <li><a href="#news" class="nav-link" data-page="news">News</a></li>
+                    <li><a href="#achievements" class="nav-link" data-page="achievements">Achievements</a></li>
+                    <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="page-content">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <div class="container">
+                    <h2>CODE FOR FUTURE ROBOTICS</h2>
+                    <p>Welcome to the official website of the Robotics Club at NIT Patna. We innovate, build, and compete at the intersection of hardware and software.</p>
+                    <a href="#about" class="btn btn-secondary nav-link" data-page="about">Explore Our Club</a>
+                </div>
+            </div>
+            
+            <div class="container">
+                <h2>Quick Navigation</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="badge">About</span>
+                            <h3>Our Story</h3>
+                            <p>Learn about our history, mission, vision, and the facilities we have.</p>
+                            <a href="#about" class="btn btn-outline nav-link" data-page="about">Explore</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="badge">Projects</span>
+                            <h3>Our Work</h3>
+                            <p>Check out our past and ongoing robotics projects with detailed descriptions.</p>
+                            <a href="#projects" class="btn btn-outline nav-link" data-page="projects">View Projects</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="badge">Events</span>
+                            <h3>Upcoming Events</h3>
+                            <p>Workshops, competitions, and guest lectures. Don't miss out!</p>
+                            <a href="#events" class="btn btn-outline nav-link" data-page="events">View Events</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Club Highlights</h2>
+                <div class="highlights">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Competitions</h3>
+                        <p>Regular participation in national and international robotics competitions with multiple wins.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h3>Workshops</h3>
+                        <p>Hands-on workshops on robotics fundamentals, AI, IoT, and advanced control systems.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Research Projects</h3>
+                        <p>Cutting-edge research in autonomous systems, computer vision, and robotic manipulators.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Upcoming Event Teaser</h3>
+                        <p><strong>Robotics Hackathon 2026:</strong> Join us for a 48-hour hackathon focusing on autonomous drones. March 15-17, 2026. Register your team now!</p>
+                        <a href="#events" class="btn nav-link" data-page="events">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="card" style="margin-top: 2rem;">
+                    <div class="card-content">
+                        <h3>Recent Achievement</h3>
+                        <p><strong>National Robotics Championship 2025:</strong> Our team "NITP RoboX" secured 1st prize in the Autonomous Maze Solver category, competing against 50+ teams from across India.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="page">
+            <div class="container">
+                <h1>About Robotics Club</h1>
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Club History</h2>
+                        <p>The Robotics Club at NIT Patna was established in 2012 with the vision of fostering innovation in robotics and automation among students. Over the years, we have grown to become one of the most active technical clubs on campus.</p>
+                    </div>
+                </div>
+                
+                <div class="grid" style="margin-top: 2rem;">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Mission</h3>
+                            <p>To provide students with hands-on experience in robotics, foster innovation, and prepare them for real-world challenges in automation and AI.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Vision</h3>
+                            <p>To be a leading student-led robotics innovation hub that contributes to technological advancement and societal development.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Objectives</h3>
+                            <ul style="padding-left: 1.2rem;">
+                                <li>Promote interdisciplinary learning in robotics</li>
+                                <li>Participate in national/international competitions</li>
+                                <li>Organize workshops and training sessions</li>
+                                <li>Foster industry-academia collaboration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Club Activities</h2>
+                <div class="grid">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Competitions" class="card-img">
+                        <div class="card-content">
+                            <h3>Competitions</h3>
+                            <p>We regularly participate in prestigious competitions like Robocon, Indian Robotics League, and various hackathons.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Workshops" class="card-img">
+                        <div class="card-content">
+                            <h3>Workshops</h3>
+                            <p>From basics of Arduino to advanced ROS and computer vision, we conduct workshops for all skill levels.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Research" class="card-img">
+                        <div class="card-content">
+                            <h3>Research Projects</h3>
+                            <p>We undertake research projects in collaboration with faculty members on cutting-edge robotics topics.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Infrastructure & Lab Facilities</h2>
+                <div class="card">
+                    <div class="card-content">
+                        <p>Our club has access to a dedicated robotics lab equipped with:</p>
+                        <ul style="padding-left: 1.2rem; margin-top: 1rem;">
+                            <li>3D Printers and CNC machine for prototyping</li>
+                            <li>Arduino, Raspberry Pi, and NVIDIA Jetson development kits</li>
+                            <li>Various sensors, actuators, and robotic arms</li>
+                            <li>High-performance computing workstations for simulation</li>
+                            <li>Electronics workbench with oscilloscopes and function generators</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2>Club Timeline & Milestones</h2>
+                <div class="card">
+                    <div class="card-content">
+                        <p><strong>2012:</strong> Club established with 15 founding members</p>
+                        <p><strong>2015:</strong> First participation in National Robocon</p>
+                        <p><strong>2018:</strong> Won first national competition (IIT Bombay Techfest)</p>
+                        <p><strong>2020:</strong> Established dedicated robotics lab on campus</p>
+                        <p><strong>2023:</strong> Published first research paper in international conference</p>
+                        <p><strong>2025:</strong> Secured 1st prize in National Robotics Championship</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Page -->
+        <section id="projects" class="page">
+            <div class="container">
+                <h1>Our Projects</h1>
+                <p>Explore our past and ongoing robotics projects</p>
+                
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="drone">Drone</button>
+                    <button class="filter-btn" data-filter="arm">Robotic Arm</button>
+                    <button class="filter-btn" data-filter="ai">AI</button>
+                    <button class="filter-btn" data-filter="iot">IoT</button>
+                </div>
+                
+                <div class="grid" id="projects-grid">
+                    <!-- Projects will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Page -->
+        <section id="events" class="page">
+            <div class="container">
+                <h1>Events & Activities</h1>
+                
+                <h2>Upcoming Events</h2>
+                <div class="grid" id="upcoming-events">
+                    <!-- Upcoming events loaded by JS -->
+                </div>
+                
+                <h2>Ongoing Events</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="badge">Ongoing</span>
+                            <h3>Autonomous Drone Development</h3>
+                            <p>Team working on vision-based navigation for drones in GPS-denied environments.</p>
+                            <p><strong>Duration:</strong> Jan - Apr 2026</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="badge">Ongoing</span>
+                            <h3>Robotic Arm for Agriculture</h3>
+                            <p>Developing a cost-effective robotic arm for automated fruit picking and sorting.</p>
+                            <p><strong>Duration:</strong> Dec 2025 - Mar 2026</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Past Events</h2>
+                <div class="grid" id="past-events">
+                    <!-- Past events loaded by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Page -->
+        <section id="team" class="page">
+            <div class="container">
+                <h1>Our Team</h1>
+                
+                <h2>Faculty Advisor</h2>
+                <div class="card">
+                    <div class="card-content">
+                        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                            <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #ccc;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div style="flex: 1; min-width: 300px;">
+                                <h3>Dr. Rajesh Kumar</h3>
+                                <p><strong>Designation:</strong> Professor, Department of Electrical Engineering</p>
+                                <p><strong>Message:</strong> "The Robotics Club represents the innovative spirit of NIT Patna. I'm proud to mentor such talented students pushing the boundaries of robotics technology."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Core Team / Office Bearers</h2>
+                <div class="grid" id="core-team">
+                    <!-- Core team loaded by JS -->
+                </div>
+                
+                <h2>Team Members by Specialization</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Hardware Team</h3>
+                            <p><strong>Lead:</strong> Priya Sharma</p>
+                            <p><strong>Members:</strong> 12 students</p>
+                            <p>Focus: Circuit design, PCB fabrication, mechanical assembly, sensor integration</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Software Team</h3>
+                            <p><strong>Lead:</strong> Amit Patel</p>
+                            <p><strong>Members:</strong> 15 students</p>
+                            <p>Focus: Control algorithms, ROS, simulation, embedded programming</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>AI & Vision Team</h3>
+                            <p><strong>Lead:</strong> Rohan Singh</p>
+                            <p><strong>Members:</strong> 10 students</p>
+                            <p>Focus: Computer vision, machine learning, path planning, SLAM</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Design Team</h3>
+                            <p><strong>Lead:</strong> Sneha Gupta</p>
+                            <p><strong>Members:</strong> 8 students</p>
+                            <p>Focus: 3D modeling, UI/UX, graphic design, documentation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Page -->
+        <section id="news" class="page">
+            <div class="container">
+                <h1>Robotics News & Updates</h1>
+                
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-news-filter="all">All News</button>
+                    <button class="filter-btn" data-news-filter="club">Club News</button>
+                    <button class="filter-btn" data-news-filter="competition">Competition News</button>
+                    <button class="filter-btn" data-news-filter="tech">Tech Innovations</button>
+                </div>
+                
+                <div id="news-container">
+                    <!-- News loaded by JavaScript -->
+                </div>
+                
+                <div class="card" style="margin-top: 3rem;">
+                    <div class="card-content">
+                        <h3>Subscribe to Our Newsletter</h3>
+                        <p>Stay updated with the latest from Robotics Club NITP</p>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                            <input type="email" placeholder="Enter your email" style="flex: 1; min-width: 250px; padding: 0.8rem; border: 2px solid var(--gray); border-radius: 8px;">
+                            <button class="btn">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Page -->
+        <section id="achievements" class="page">
+            <div class="container">
+                <h1>Our Achievements</h1>
+                
+                <h2>Competition Wins</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Competition</th>
+                            <th>Year</th>
+                            <th>Prize</th>
+                            <th>Team Members</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>National Robotics Championship</td>
+                            <td>2025</td>
+                            <td>1st Prize</td>
+                            <td>Rohan, Priya, Amit, Sneha</td>
+                        </tr>
+                        <tr>
+                            <td>IIT Bombay Techfest - Robowars</td>
+                            <td>2024</td>
+                            <td>2nd Prize</td>
+                            <td>Karan, Anjali, Vivek, Divya</td>
+                        </tr>
+                        <tr>
+                            <td>Indian Robotics League</td>
+                            <td>2023</td>
+                            <td>3rd Prize</td>
+                            <td>Raj, Meera, Sanjay, Preeti</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h2>Research Publications</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Vision-based Navigation for Drones</h3>
+                            <p><strong>Conference:</strong> International Conference on Robotics and Automation (ICRA)</p>
+                            <p><strong>Year:</strong> 2025</p>
+                            <p><strong>Authors:</strong> R. Singh, P. Sharma, A. Patel, Dr. R. Kumar</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Low-cost Robotic Arm for Agriculture</h3>
+                            <p><strong>Journal:</strong> Journal of Field Robotics</p>
+                            <p><strong>Year:</strong> 2024</p>
+                            <p><strong>Authors:</strong> S. Gupta, M. Verma, Dr. R. Kumar</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Grants & Awards</h2>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Innovation Grant from DST</h3>
+                        <p><strong>Granting Organization:</strong> Department of Science & Technology, Govt. of India</p>
+                        <p><strong>Year:</strong> 2025</p>
+                        <p><strong>Amount:</strong> ₹15,00,000</p>
+                        <p><strong>Purpose:</strong> Development of assistive robotics for differently-abled individuals</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Get In Touch</h3>
+                            <p><strong>Address:</strong> Robotics Club, NIT Patna, Ashok Rajpath, Patna, Bihar 800005</p>
+                            <p><strong>Email:</strong> roboticsclub@nitp.ac.in</p>
+                            <p><strong>Phone:</strong> +91 12345 67890</p>
+                            
+                            <h4 style="margin-top: 1.5rem;">Office Hours</h4>
+                            <p>Monday - Friday: 3:00 PM - 6:00 PM</p>
+                            <p>Saturday: 10:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Contact Form</h3>
+                            <form id="contactForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                                <input type="text" placeholder="Your Name" required style="padding: 0.8rem; border: 2px solid var(--gray); border-radius: 8px;">
+                                <input type="email" placeholder="Your Email" required style="padding: 0.8rem; border: 2px solid var(--gray); border-radius: 8px;">
+                                <select style="padding: 0.8rem; border: 2px solid var(--gray); border-radius: 8px;">
+                                    <option value="">Select Purpose</option>
+                                    <option value="membership">Membership Inquiry</option>
+                                    <option value="collaboration">Collaboration</option>
+                                    <option value="workshop">Workshop Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <textarea placeholder="Your Message" rows="4" style="padding: 0.8rem; border: 2px solid var(--gray); border-radius: 8px;"></textarea>
+                                <button type="submit" class="btn">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Find Us On Campus</h2>
+                <div class="card">
+                    <div class="card-content">
+                        <p><strong>Location:</strong> Main Academic Block, Ground Floor, Room G-12 (Robotics Lab)</p>
+                        <div style="height: 200px; background: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888; margin-top: 1rem;">
+                            <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Campus Map Would Appear Here
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Robotics Club NITP</h3>
+                    <p>Driving innovation in robotics and automation at NIT Patna since 2012.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#home" class="nav-link" data-page="home" style="color: white; text-decoration: none;">Home</a></li>
+                        <li><a href="#projects" class="nav-link" data-page="projects" style="color: white; text-decoration: none;">Projects</a></li>
+                        <li><a href="#events" class="nav-link" data-page="events" style="color: white; text-decoration: none;">Events</a></li>
+                        <li><a href="#achievements" class="nav-link" data-page="achievements" style="color: white; text-decoration: none;">Achievements</a></li>
+                        <li><a href="#contact" class="nav-link" data-page="contact" style="color: white; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> roboticsclub@nitp.ac.in</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> NIT Patna, Bihar, India</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Robotics Club, NIT Patna. All rights reserved. | Website for selection process AY 2025-2026</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+</html>
